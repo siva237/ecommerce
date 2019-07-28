@@ -69,6 +69,18 @@ class AddProductsView(FormView):
         return HttpResponseRedirect(self.get_success_url())
 
 
+def search_stores(request):
+    if request.method == 'GET':
+        data = Stores.objects.all()
+
+        search_data = request.GET.get('name')
+
+        if search_data is not None:
+            data = data.filter(name=search_data)
+
+        return render(request,'search_stores.html',{'search_data':data})
+
+
 
 
 

@@ -1,7 +1,7 @@
 from django.conf.urls import url
 
 from .views import get_stores,success,add_new_stores,home,StoreView,\
-    ProductsView,AddProductsView
+    ProductsView,AddProductsView,search_stores
 
 urlpatterns = [
 
@@ -13,6 +13,7 @@ urlpatterns = [
     url(r'get_products/',ProductsView.as_view(),name='prod_details'),
     url(r'add_produts/',AddProductsView.as_view(),name = 'add_prods'),
 
+    url(r'search_stores/',search_stores,name='search_stores'),
 
     url(r'store_data/',StoreView.as_view())
 
